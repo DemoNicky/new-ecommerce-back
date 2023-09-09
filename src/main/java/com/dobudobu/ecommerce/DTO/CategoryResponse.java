@@ -9,5 +9,7 @@ import lombok.Setter;
 @Builder
 public class CategoryResponse {
 
+    private Long id;
+
     private String categoryName;
 }

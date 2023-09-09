@@ -16,16 +16,13 @@ import lombok.NoArgsConstructor;
 public class ImageData {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
     private String type;
 
-    @Lob
-    @Column(name = "menu_image", length = 999999999)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private byte[] menuImage;
+    private String imagePath;
 
 }

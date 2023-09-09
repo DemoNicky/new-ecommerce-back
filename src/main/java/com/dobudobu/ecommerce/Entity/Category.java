@@ -1,8 +1,10 @@
 package com.dobudobu.ecommerce.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
 @Table(name = "tb_category")
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
 
     @Id

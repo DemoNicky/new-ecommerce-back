@@ -2,14 +2,21 @@ package com.dobudobu.ecommerce.Entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
 @Table(name = "tb_product")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -24,7 +31,7 @@ public class Product {
     private String desc;
 
     @Column(name = "product_price", nullable = false)
-    private Long price;
+    private BigDecimal price;
 
     @Column(name = "stock", length = 300)
     private Integer stock;
@@ -44,16 +51,15 @@ public class Product {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate deletedAt;
 
-    private Boolean active = Boolean.TRUE;
+    @Builder.Default
+    private Boolean deleted = Boolean.FALSE;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "id")
     private Category categories;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "product_and_image_data",
-    joinColumns = {@JoinColumn(name = "product_id")},
-            inverseJoinColumns = {@JoinColumn(name = "image_data_id")}
-    )
-    private List<ImageData> imageData;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id", referencedColumnName = "id")
+    private ImageData imageData;
 }
