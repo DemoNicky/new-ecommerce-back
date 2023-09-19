@@ -1,5 +1,6 @@
 package com.dobudobu.ecommerce.Controller;
 
+import com.dobudobu.ecommerce.DTO.GetProductResponse;
 import com.dobudobu.ecommerce.DTO.ProductResponse;
 import com.dobudobu.ecommerce.DTO.ResponseHandling;
 import com.dobudobu.ecommerce.Service.ProductService;
@@ -34,6 +35,15 @@ public class ProductController {
         ProductResponse productResponse = productService.createProduct(name, desc, price, stock, categoriesId, image);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ResponseHandling.<ProductResponse>builder().data(productResponse).build());
+    }
+
+    @GetMapping(
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<ResponseHandling<GetProductResponse>> getAllProduct(){
+        return null;
+
     }
 
 }

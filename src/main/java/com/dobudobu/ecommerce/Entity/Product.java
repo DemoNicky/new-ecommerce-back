@@ -1,6 +1,7 @@
 package com.dobudobu.ecommerce.Entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -56,6 +57,7 @@ public class Product {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "category_id", nullable = false, referencedColumnName = "id")
+    @JsonIgnore
     private Category categories;
 
 

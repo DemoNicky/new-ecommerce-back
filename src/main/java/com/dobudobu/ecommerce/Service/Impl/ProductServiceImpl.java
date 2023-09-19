@@ -100,6 +100,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public Category getCategory(Long id){
+        //cobain pake optional nanti
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new NullPointerException("Category not found!!!"));
         if (category == null){
