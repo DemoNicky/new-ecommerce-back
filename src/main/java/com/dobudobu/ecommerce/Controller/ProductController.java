@@ -38,10 +38,11 @@ public class ProductController {
     }
 
     @GetMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<ResponseHandling<GetProductResponse>> getAllProduct(){
+        ResponseHandling<GetProductResponse> response = productService.getAllProduct();
+
         return null;
 
     }

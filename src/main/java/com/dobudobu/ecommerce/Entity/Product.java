@@ -49,7 +49,7 @@ public class Product {
     private LocalDate modifiedAt;
 
     @Column(name = "deleted_at")
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy ")
     private LocalDate deletedAt;
 
     @Builder.Default

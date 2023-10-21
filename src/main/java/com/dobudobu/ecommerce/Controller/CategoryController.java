@@ -41,7 +41,7 @@ public class CategoryController {
 
             return ResponseEntity.status(HttpStatus.OK)
                     .body(ResponseHandling.<GetCategoryResponse>builder().data(categoryResponses).build());
-            
+
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(ResponseHandling.<GetCategoryResponse>builder()
